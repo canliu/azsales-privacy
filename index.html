@@ -1,206 +1,330 @@
 <!DOCTYPE html>
+<!--
+  AZ Sales — privacy policy, standalone copy.
+
+  THIS FILE IS FOR A DIFFERENT REPOSITORY. It is the source for
+  https://canliu.github.io/azsales-privacy/ — the URL listed on the Chrome Web
+  Store — which lives in the separate `azsales-privacy` GitHub Pages repo. It is
+  kept here so the two copies are version-controlled together and cannot drift.
+
+  Copy it to that repo as `index.html` when this text changes. Its twin is
+  website/privacy.html, which is the same policy rendered in the site's styling;
+  edit BOTH or neither. A public policy that contradicts the listed one is worse
+  than a stale one, because a reviewer can find both.
+
+  Self-contained on purpose: no external stylesheet, font or script, so it cannot
+  break if the other repo has no assets.
+-->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy — Amazon BSR Sales Estimator</title>
+<title>Privacy Policy — AZ Sales</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
+  :root {
+    --bg: #ffffff; --fg: #1c1c1e; --muted: #6b6b70; --rule: #e3e3e6;
+    --accent: #0f6fcf; --card: #f7f7f8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #16171a; --fg: #e9e9ec; --muted: #a0a0a8; --rule: #2c2d31;
+            --accent: #5aa9f0; --card: #1e1f23; }
+  }
+  * { box-sizing: border-box; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: #f5f5f5;
-    color: #333;
-    min-height: 100vh;
+    margin: 0; padding: 0 20px 80px; background: var(--bg); color: var(--fg);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   }
-
-  header {
-    background: #FF9900;
-    padding: 32px 0;
-    text-align: center;
+  main { max-width: 760px; margin: 0 auto; }
+  header { padding: 48px 0 8px; }
+  h1 { font-size: 30px; line-height: 1.25; margin: 0 0 6px; letter-spacing: -0.01em; }
+  h2 {
+    font-size: 19px; margin: 40px 0 10px; padding-top: 22px;
+    border-top: 1px solid var(--rule); letter-spacing: -0.005em;
   }
-
-  .logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 8px;
+  h3 { font-size: 16px; margin: 22px 0 6px; }
+  p, li { color: var(--fg); }
+  .meta { color: var(--muted); font-size: 14px; margin: 0 0 4px; }
+  .lede { color: var(--muted); font-size: 17px; }
+  ul { padding-left: 22px; }
+  li { margin: 5px 0; }
+  a { color: var(--accent); }
+  code {
+    background: var(--card); padding: 1px 5px; border-radius: 4px;
+    font: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   }
-
-  .logo-icon {
-    width: 48px;
-    height: 48px;
-    background: white;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-    padding: 5px;
+  .box {
+    background: var(--card); border: 1px solid var(--rule); border-radius: 8px;
+    padding: 14px 18px; margin: 18px 0;
   }
-
-  .logo-az {
-    font-size: 18px;
-    font-weight: 900;
-    color: #FF9900;
-    line-height: 1;
-  }
-
-  .logo-sales {
-    font-size: 11px;
-    font-weight: 700;
-    color: #333;
-    line-height: 1;
-  }
-
-  .logo-name {
-    font-size: 24px;
-    font-weight: 700;
-    color: white;
-  }
-
-  header p {
-    color: rgba(255,255,255,0.85);
-    font-size: 14px;
-  }
-
-  .container {
-    max-width: 720px;
-    margin: 40px auto;
-    padding: 0 20px 60px;
-  }
-
-  .card {
-    background: white;
-    border-radius: 12px;
-    padding: 40px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  }
-
-  .card h1 {
-    font-size: 26px;
-    color: #111;
-    margin-bottom: 6px;
-  }
-
-  .updated {
-    font-size: 13px;
-    color: #999;
-    margin-bottom: 32px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid #f0f0f0;
-  }
-
-  .section {
-    margin-bottom: 28px;
-  }
-
-  .section h2 {
-    font-size: 16px;
-    font-weight: 700;
-    color: #111;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .section h2::before {
-    content: '';
-    display: inline-block;
-    width: 4px;
-    height: 16px;
-    background: #FF9900;
-    border-radius: 2px;
-  }
-
-  .section p {
-    font-size: 15px;
-    line-height: 1.7;
-    color: #555;
-  }
-
-  .highlight-box {
-    background: #fff8ee;
-    border: 1px solid #ffe0a0;
-    border-radius: 8px;
-    padding: 16px 20px;
-    margin-bottom: 28px;
-    font-size: 14px;
-    color: #885500;
-    line-height: 1.6;
-  }
-
-  .contact-link {
-    color: #FF9900;
-    text-decoration: none;
-    font-weight: 600;
-  }
-
-  .contact-link:hover {
-    text-decoration: underline;
-  }
-
-  footer {
-    text-align: center;
-    font-size: 13px;
-    color: #aaa;
-    margin-top: 32px;
-  }
+  .tablewrap { overflow-x: auto; margin: 16px 0; }
+  table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: 15px; }
+  th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { font-weight: 600; color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .04em; }
+  footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 14px; }
 </style>
 </head>
 <body>
+<main>
 
 <header>
-  <div class="logo">
-    <div class="logo-icon">
-      <span class="logo-az">AZ</span>
-      <span class="logo-sales">Sales</span>
-    </div>
-    <span class="logo-name">AZ Sales</span>
-  </div>
-  <p>Amazon BSR Sales Estimator</p>
+  <h1>AZ Sales — Privacy Policy</h1>
+  <p class="meta">Effective 17 August 2026 · Last updated 17 August 2026</p>
 </header>
 
-<div class="container">
-  <div class="card">
-    <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: March 24, 2026</p>
+<p class="lede">
+  AZ Sales is a Chrome extension that estimates daily sales, Best Sellers Rank and
+  net profit after Amazon fees on Amazon product, search and Best-Sellers pages.
+  This policy explains exactly what data the extension and its website handle, why,
+  where it is kept, how long for, and who else sees it.
+</p>
 
-    <div class="highlight-box">
-      ✓ This extension does not collect, store, or transmit any personal data. Everything runs locally in your browser.
-    </div>
+<p>
+  The extension and the website <a href="https://azsales.shopverix.com">azsales.shopverix.com</a>
+  are operated by <strong>Tony / Shopverix</strong> ("we", "us"). Contact:
+  <a href="mailto:support@shopverix.com">support@shopverix.com</a>.
+</p>
 
-    <div class="section">
-      <h2>Overview</h2>
-      <p>Amazon BSR Sales Estimator is a Chrome browser extension that predicts daily sales estimates for products on Amazon search results pages. This privacy policy explains how the extension handles data.</p>
-    </div>
-
-    <div class="section">
-      <h2>Data Collection</h2>
-      <p>This extension does not collect, store, transmit, or share any personal data. All processing happens locally in your browser. No user data is ever sent to external servers.</p>
-    </div>
-
-    <div class="section">
-      <h2>What the Extension Does</h2>
-      <p>The extension reads publicly visible product information — including BSR ranking, category, price, and reviews — from Amazon search results pages already displayed in your browser. This data is used solely to calculate sales estimates and is never sent to any external server.</p>
-    </div>
-
-    <div class="section">
-      <h2>Third Party Services</h2>
-      <p>The extension does not connect to any external servers or third-party services. No analytics, tracking, or advertising tools are used.</p>
-    </div>
-
-    <div class="section">
-      <h2>Contact</h2>
-      <p>If you have any questions about this privacy policy, please contact us at: <a class="contact-link" href="mailto:tony@shopverix.com">tony@shopverix.com</a></p>
-    </div>
-  </div>
-
-  <footer>
-    © 2026 AZ Sales · Amazon BSR Sales Estimator · Chrome Extension
-  </footer>
+<div class="box">
+  <strong>The short version.</strong> If you never sign in, we receive nothing at
+  all — the extension works entirely on your device. If you do sign in, we hold
+  your email address and your subscription status, and nothing else. We do not
+  run analytics, we have no advertising, we do not sell or rent data to anyone,
+  and we never receive the Amazon pages you browse or the products you look at.
 </div>
 
+<h2>1. What the extension does</h2>
+<p>
+  AZ Sales has a single purpose: showing sales, rank and profit estimates for
+  Amazon listings. To do that it reads the Amazon page you are already viewing and,
+  for listings whose rank is not shown on that page, fetches the product's own
+  Amazon page in the background using your existing browser session. All of that
+  reading and calculating happens on your device. The results are shown to you and
+  cached locally; they are not transmitted to us.
+</p>
+
+<h2>2. Data we collect</h2>
+
+<h3>2.1 If you do not sign in</h3>
+<p>
+  Nothing is collected by us. The free preview works entirely locally. No account
+  is created, no request carrying personal data is sent to our servers, and we have
+  no way to identify you.
+</p>
+
+<h3>2.2 Account data (only if you create an account)</h3>
+<p>You can sign in with Google or with a one-time code sent to your email address. In either case we receive and store:</p>
+<ul>
+  <li><strong>Your email address.</strong></li>
+  <li><strong>An account identifier</strong> (a random UUID generated by our authentication provider).</li>
+  <li><strong>Account timestamps</strong> — when the account was created, and when your free trial starts and ends.</li>
+</ul>
+<p>
+  We never receive your Google password. When you sign in with Google we receive
+  only your email address and that identifier — not your contacts, calendar, Drive,
+  profile details or any other Google data.
+</p>
+
+<h3>2.3 Subscription and referral data</h3>
+<ul>
+  <li><strong>Subscription status</strong> (none, trialing, active, past due, or cancelled) and the date your current billing period ends.</li>
+  <li><strong>A Stripe customer identifier</strong>, so we can match your account to your subscription.</li>
+  <li><strong>Referral data</strong> — your own referral code, the code you were referred by if any, and the count of bonus days and credited referrals.</li>
+</ul>
+<p>
+  <strong>We never see or store your card details.</strong> Payment is taken on
+  Stripe's own hosted checkout page; card numbers go directly to Stripe and never
+  pass through the extension or our servers.
+</p>
+
+<h3>2.4 Data that stays on your device and is never sent to us</h3>
+<p>
+  The extension stores several things in your browser's local storage. None of it
+  is transmitted to us or to anyone else, and it is all removed when you uninstall
+  the extension or clear the site's data:
+</p>
+<ul>
+  <li><strong>Your sign-in session</strong> and a cached copy of your subscription status, so you are not asked to sign in repeatedly.</li>
+  <li><strong>Free-preview usage</strong> — the distinct Amazon search terms you have used during the free preview, held locally purely to count how many of your free searches remain. These search terms never leave your device.</li>
+  <li><strong>A pending referral code</strong>, if you arrived through an invite link.</li>
+  <li><strong>A cache of Amazon data</strong> — ranks, categories, dimensions, weights, seller countries and rate-limit state — so the extension does not re-request the same page. This is Amazon's public product data, not personal data, and it expires automatically.</li>
+  <li><strong>Your extension settings</strong>, such as whether sponsored listings are hidden and whether rank and country lookups are enabled.</li>
+</ul>
+
+<h3>2.5 What we do not collect</h3>
+<ul>
+  <li>We do <strong>not</strong> collect your browsing history, and the extension does not run on any site other than Amazon marketplaces and our own website.</li>
+  <li>We do <strong>not</strong> receive the Amazon products, searches or pages you view.</li>
+  <li>We use <strong>no</strong> analytics, telemetry, tracking pixels, advertising or fingerprinting of any kind — there are none in the extension or on our website.</li>
+  <li>We do <strong>not</strong> collect your name, address, phone number, location, IP-based profile, health, financial or biometric data.</li>
+  <li>We do <strong>not</strong> read or store your Amazon account credentials.</li>
+</ul>
+
+<h2>3. How we use the data</h2>
+<div class="tablewrap">
+<table>
+  <thead><tr><th>Data</th><th>Why we hold it</th></tr></thead>
+  <tbody>
+    <tr><td>Email address</td><td>To identify your account, let you sign in, send the sign-in code, and contact you about your subscription or a service problem.</td></tr>
+    <tr><td>Account identifier</td><td>To link your account to your subscription and referral records.</td></tr>
+    <tr><td>Trial and subscription status</td><td>To decide whether the extension's features are unlocked for you, and to bill you correctly.</td></tr>
+    <tr><td>Stripe customer identifier</td><td>To retrieve, cancel or resume your subscription when you ask us to.</td></tr>
+    <tr><td>Referral code and credits</td><td>To operate the referral scheme — crediting bonus days to you and to whoever invited you.</td></tr>
+  </tbody>
+</table>
+</div>
+<p>
+  We do not use any of this for advertising, profiling, automated decision-making,
+  or any purpose unrelated to running the extension and your subscription. We do
+  not send marketing email unless you ask us to.
+</p>
+
+<h2>4. How the data is stored and protected</h2>
+<ul>
+  <li>Account and subscription data is held in a <strong>Supabase</strong> (PostgreSQL) database, hosted on Amazon Web Services infrastructure.</li>
+  <li>Access is restricted by row-level security, so an authenticated user can read only their own record.</li>
+  <li>All traffic between the extension, our website, our billing service and our database is encrypted in transit over HTTPS/TLS.</li>
+  <li>Our billing service holds no database of its own; it validates your sign-in token and talks to Stripe and Supabase over HTTPS.</li>
+  <li>Administrative access is limited to the operator of the service.</li>
+</ul>
+<p>
+  No system is perfectly secure, and we cannot guarantee absolute security. If a
+  breach ever affects your data we will notify affected users by email without
+  undue delay.
+</p>
+
+<h2>5. How long we keep it (data retention)</h2>
+<ul>
+  <li><strong>Account data</strong> — kept while your account exists. If you ask us to delete your account, we remove your account record and associated referral and subscription rows <strong>within 30 days</strong>.</li>
+  <li><strong>Payment records</strong> — Stripe retains transaction records under its own policy, and we may retain invoice and tax records for up to <strong>7 years</strong> where accounting and tax law requires it. These contain your billing details as held by Stripe, not card numbers held by us.</li>
+  <li><strong>Local data on your device</strong> — kept until it expires, until you clear your browser data, or until you uninstall the extension, whichever is first. The Amazon data cache expires automatically within 24 hours to 30 days depending on the item.</li>
+</ul>
+
+<h2>6. Who we share it with</h2>
+<p>
+  <strong>We do not sell, rent or trade your personal data, and we never have.</strong>
+  We share data only with the service providers needed to run the product, each of
+  which acts as our processor under its own privacy policy:
+</p>
+<div class="tablewrap">
+<table>
+  <thead><tr><th>Provider</th><th>What it receives</th><th>Why</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><a href="https://supabase.com/privacy">Supabase</a></td>
+      <td>Email, account identifier, subscription and referral fields</td>
+      <td>Database and authentication</td>
+    </tr>
+    <tr>
+      <td><a href="https://policies.google.com/privacy">Google</a></td>
+      <td>Your email address, if you choose Google sign-in</td>
+      <td>Sign-in only</td>
+    </tr>
+    <tr>
+      <td><a href="https://stripe.com/privacy">Stripe</a></td>
+      <td>Email and payment details you enter on Stripe's checkout</td>
+      <td>Taking and managing subscription payments</td>
+    </tr>
+    <tr>
+      <td><a href="https://aws.amazon.com/privacy/">Amazon Web Services</a></td>
+      <td>Hosting only — the website and billing service run on AWS</td>
+      <td>Infrastructure</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>
+  We may also disclose data if legally required to do so — for example in response
+  to a valid court order — or to establish or defend legal claims. If the service
+  is ever sold or transferred, account data may transfer with it, and we will say
+  so here before that takes effect.
+</p>
+<p>
+  <strong>Amazon.</strong> The extension requests Amazon pages from your browser
+  using your existing Amazon session, exactly as if you had opened those pages
+  yourself. Amazon therefore sees those requests as your own browsing. We receive
+  none of it.
+</p>
+
+<h2>7. Chrome Web Store Limited Use disclosure</h2>
+<p>
+  Our use of information received from Google APIs, and of any user data obtained
+  through the extension, adheres to the
+  <a href="https://developer.chrome.com/docs/webstore/program-policies/limited-use/">Chrome Web Store User Data Policy</a>,
+  including its Limited Use requirements. Specifically:
+</p>
+<ul>
+  <li>We use the data only to provide and improve the single purpose described in section 1.</li>
+  <li>We do not transfer the data to third parties except as listed in section 6, and never for advertising or resale.</li>
+  <li>We do not use or transfer the data to determine creditworthiness or for lending purposes.</li>
+  <li>No humans read your data except where you have explicitly asked us to (for example, when you contact support), where required by law, or for security purposes such as investigating abuse.</li>
+</ul>
+
+<h2>8. Permissions, and why each one is needed</h2>
+<div class="tablewrap">
+<table>
+  <thead><tr><th>Permission</th><th>Why</th></tr></thead>
+  <tbody>
+    <tr><td><code>identity</code></td><td>To open the Google sign-in window and receive the result. We use only the sign-in flow itself — we do not read your Google profile or contacts.</td></tr>
+    <tr><td><code>storage</code></td><td>To keep your sign-in session, cached subscription status, free-preview count and pending referral code on your device.</td></tr>
+    <tr><td><code>activeTab</code> and <code>scripting</code></td><td>To display estimates on the Amazon tab you are viewing, and to let the popup's buttons act on that page.</td></tr>
+    <tr><td>Amazon site access</td><td>To read the listings on the page and fetch product and seller pages for rank, dimensions and seller country. Limited to the eleven Amazon marketplaces the extension supports.</td></tr>
+    <tr><td>Access to our own site and database</td><td>To sign you in, check whether your subscription is active, and manage it.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>9. Your rights and choices</h2>
+<ul>
+  <li><strong>Use it without an account.</strong> The free preview requires no sign-in and sends us nothing.</li>
+  <li><strong>Access or export.</strong> Ask us and we will send you a copy of the data held about you.</li>
+  <li><strong>Correction.</strong> Ask us to correct anything inaccurate.</li>
+  <li><strong>Deletion.</strong> Ask us to delete your account and we will do so within 30 days, subject to the payment records noted in section 5.</li>
+  <li><strong>Withdraw consent.</strong> Cancel your subscription at any time from the account page, and uninstall the extension to remove all local data.</li>
+  <li><strong>Object or restrict.</strong> Where the GDPR or similar law applies, you may object to or ask us to restrict our processing, and you may complain to your local data protection authority.</li>
+</ul>
+<p>
+  To exercise any of these, email <a href="mailto:support@shopverix.com">support@shopverix.com</a>.
+  We aim to respond within 30 days. We will not charge you or degrade the service
+  for exercising a right.
+</p>
+
+<h2>10. International transfers</h2>
+<p>
+  Our service providers operate globally, and your data may be stored or processed
+  outside your country, including in the United States. Where data is transferred
+  out of the UK or European Economic Area, our providers rely on appropriate
+  safeguards such as the European Commission's Standard Contractual Clauses.
+</p>
+
+<h2>11. Children</h2>
+<p>
+  AZ Sales is a business tool for Amazon sellers and researchers. It is not
+  directed at children, and we do not knowingly collect data from anyone under 16.
+  If you believe a child has given us data, email us and we will delete it.
+</p>
+
+<h2>12. Changes to this policy</h2>
+<p>
+  If this policy changes we will update the date at the top and publish the new
+  version at this address. If a change materially affects how we handle your data,
+  we will also notify account holders by email before it takes effect. Continuing
+  to use AZ Sales after a change means you accept the updated policy.
+</p>
+
+<h2>13. Contact</h2>
+<p>
+  Questions, requests or complaints about this policy or your data:
+  <a href="mailto:support@shopverix.com">support@shopverix.com</a>.
+</p>
+
+<footer>
+  © <span id="yr">2026</span> AZ Sales · Amazon Best Seller Rank &amp; Sales Estimator ·
+  <a href="https://azsales.shopverix.com">azsales.shopverix.com</a><br>
+  AZ Sales is an independent tool and is not affiliated with, endorsed by, or
+  sponsored by Amazon. Estimates are approximations, not Amazon data.
+</footer>
+
+</main>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
 </body>
 </html>
